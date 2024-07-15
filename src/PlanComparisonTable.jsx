@@ -23,7 +23,9 @@ const PlanComparisonTable = ({ data }) => {
       let featureValue;
 
       const hasFeature = plan.planDetails[0].features.some((f) => {
-        if (f.textToDisplay === feature && (f.value === 'Y' || typeof Number(f.value) === 'number')) {
+        if (f.value === 'N') {
+          return false;
+        } else if (f.textToDisplay === feature) {
           featureValue = f.value === 'Y' ? '✓' : f.value;
           return true;
         }
@@ -36,9 +38,11 @@ const PlanComparisonTable = ({ data }) => {
     return row;
   });
 
-  return (
-    <div className='main-wrapper'>
-      <div className="wrapper">
+  return data.length < 1 ? (
+    <div className='no-plan'>No Plans !</div>
+  ) : (
+    <div className="wrapper">
+      <div className="table-wrapper">
         <div className="header-wrapper">
           {headers.map((header, index) => (
             <div key={index}>{header}</div>

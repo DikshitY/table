@@ -102,6 +102,16 @@
                         "value": "Y",
                         "textToDisplay": "Autotic entry to monthly Monumental sweepstakes"
                     },
+                    {
+                        "valueType": "string",
+                        "value": "Y",
+                        "textToDisplay": "Aotic entry to monthly Monumental sweepstakes"
+                    },
+                    {
+                        "valueType": "string",
+                        "value": "Y",
+                        "textToDisplay": "Autot entry to monthly Monumental sweepstakes"
+                    },
                 ],
                 "timweTnCLink": "",
                 "scheduledToDate": null,
@@ -324,6 +334,194 @@
         "planOffers": [],
         "scheduledToDate": null,
         "identifier_vizio_us": "myoutdoortv-4"
+    },
+    {
+        "identifier": "/event/New-Game-20240424105938348",
+        "metadata": [],
+        "updateDate": "2024-07-02T10:43:09.582Z",
+        "addedDate": "2024-07-02T10:43:09.582Z",
+        "featureSetting": {
+            "numberOfAllowedStreams": 4,
+            "logoOfParnter": "",
+            "contentConsumption": [
+                "web",
+                "ios",
+                "android",
+                "roku",
+                "fireTv",
+                "appleTv",
+                "samsung",
+                "lg",
+                "androidTv",
+                "tivo",
+                "xbox",
+                "miTv",
+                "corpus",
+                "vizioTv"
+            ],
+            "includingAds": false,
+            "isHdStreaming": false,
+            "isBeamingAllowed": false,
+            "isDownloadAllowed": true,
+            "numberOfAllowedDevices": 4
+        },
+        "scheduledFromDate": "2024-04-28T18:30:00.000Z",
+        "description": "/event/New-Game-20240424105938348111",
+        "site": "msndev_PLAN",
+        "planDetails": [
+            {
+                "isRentEnabled": false,
+                "recurringPaymentAmount": 600,
+                "redirectUrl": "",
+                "displayStrikeThroughPrice": false,
+                "scheduledFromDate": 1714329000000,
+                "description": "/event/New-Game-20240424105938348",
+                "title": "/event/New-Game-20240424105938348",
+                "introductoryPrice": null,
+                "callToAction": "",
+                "features": [
+                    {
+                        "valueType": "string"
+                    }
+                ],
+                "timweTnCLink": "",
+                "scheduledToDate": null,
+                "countryCode": "IN",
+                "recurringPaymentCurrencyCode": "INR",
+                "strikeThroughPrice": null,
+                "tnCPoints": [
+                    {}
+                ],
+                "noOfDaysExtended": "",
+                "featureDetails": [
+                    {
+                        "valueType": "string"
+                    }
+                ],
+                "visible": true,
+                "hidePlanPrice": false,
+                "featurePlanIdentifier": "",
+                "numberOfAllowedDevices": 4,
+                "isPurchaseEnabled": false,
+                "numberOfAllowedStreams": 4,
+                "isDefault": true,
+                "displayFeaturePlanIdentifier": false,
+                "carrierBillingProviders": [],
+                "timweTnCHeading": "",
+                "allowedStreamCountries": [],
+                "supportedDevices": [
+                    "web_browser",
+                    "oneplus_tv",
+                    "android_phone"
+                ],
+                "paypalId": ""
+            }
+        ],
+        "scheduledToDate": null,
+        "objectKey": "monetizationPlan",
+        "renewable": true,
+        "renewalCycleType": "MONTH",
+        "name": "QA test Updated",
+        "renewalCyclePeriodMultiplier": 1,
+        "siteOwner": "msndev",
+        "id": "7c4d3a54-7635-4daa-8d80-a0f948bbfcf7",
+        "planDisplayOrder": 100,
+        "monetizationModel": "SVOD",
+        "planOffers": []
+    },
+    {
+        "identifier": "/event/New-Game-20240424105938348",
+        "metadata": [],
+        "updateDate": "2024-07-02T10:43:09.582Z",
+        "addedDate": "2024-07-02T10:43:09.582Z",
+        "featureSetting": {
+            "numberOfAllowedStreams": 4,
+            "logoOfParnter": "",
+            "contentConsumption": [
+                "web",
+                "ios",
+                "android",
+                "roku",
+                "fireTv",
+                "appleTv",
+                "samsung",
+                "lg",
+                "androidTv",
+                "tivo",
+                "xbox",
+                "miTv",
+                "corpus",
+                "vizioTv"
+            ],
+            "includingAds": false,
+            "isHdStreaming": false,
+            "isBeamingAllowed": false,
+            "isDownloadAllowed": true,
+            "numberOfAllowedDevices": 4
+        },
+        "scheduledFromDate": "2024-04-28T18:30:00.000Z",
+        "description": "/event/New-Game-20240424105938348111",
+        "site": "msndev_PLAN",
+        "planDetails": [
+            {
+                "isRentEnabled": false,
+                "recurringPaymentAmount": 600,
+                "redirectUrl": "",
+                "displayStrikeThroughPrice": false,
+                "scheduledFromDate": 1714329000000,
+                "description": "/event/New-Game-20240424105938348",
+                "title": "/event/New-Game-20240424105938348",
+                "introductoryPrice": null,
+                "callToAction": "",
+                "features": [
+                    {
+                        "valueType": "string"
+                    }
+                ],
+                "timweTnCLink": "",
+                "scheduledToDate": null,
+                "countryCode": "IN",
+                "recurringPaymentCurrencyCode": "INR",
+                "strikeThroughPrice": null,
+                "tnCPoints": [
+                    {}
+                ],
+                "noOfDaysExtended": "",
+                "featureDetails": [
+                    {
+                        "valueType": "string"
+                    }
+                ],
+                "visible": true,
+                "hidePlanPrice": false,
+                "featurePlanIdentifier": "",
+                "numberOfAllowedDevices": 4,
+                "isPurchaseEnabled": false,
+                "numberOfAllowedStreams": 4,
+                "isDefault": true,
+                "displayFeaturePlanIdentifier": false,
+                "carrierBillingProviders": [],
+                "timweTnCHeading": "",
+                "allowedStreamCountries": [],
+                "supportedDevices": [
+                    "web_browser",
+                    "oneplus_tv",
+                    "android_phone"
+                ],
+                "paypalId": ""
+            }
+        ],
+        "scheduledToDate": null,
+        "objectKey": "monetizationPlan",
+        "renewable": true,
+        "renewalCycleType": "MONTH",
+        "name": "QA test Updated",
+        "renewalCyclePeriodMultiplier": 1,
+        "siteOwner": "msndev",
+        "id": "7c4d3a54-7635-4daa-8d80-a0f948bbfcf7",
+        "planDisplayOrder": 100,
+        "monetizationModel": "SVOD",
+        "planOffers": []
     },
     {
         "identifier": "/event/New-Game-20240424105938348",
