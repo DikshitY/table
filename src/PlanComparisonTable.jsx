@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const PlanComparisonTable = ({ data }) => {
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  const handleColumnSelect = (index) => {
+    setSelectedPlan(index === selectedPlan ? null : index);
+  };
+
   const headers = ['CHOOSE A PLAN'];
 
   const allFeatures = data.reduce((acc, plan) => {
@@ -39,21 +45,42 @@ const PlanComparisonTable = ({ data }) => {
   });
 
   return data.length < 1 ? (
-    <div className='no-plan'>No Plans !</div>
+    <div className="no-plan">No Plans !</div>
   ) : (
     <div className="wrapper">
       <div className="table-wrapper">
         <div className="header-wrapper">
           {headers.map((header, index) => (
-            <div key={index}>{header}</div>
+            <div
+              key={index}
+              onClick={() => index !== 0 && handleColumnSelect(index - 1)}
+              className={`${index !== 0 ? 'cursor-pointer' : ''}`}
+              id={`${selectedPlan === index - 1 ? 'selected-column-header' : ''}`}
+            >
+              {header}
+            </div>
           ))}
         </div>
         <div className="body-wrapper">
           {rows.map((row, rowIndex) => (
             <div className="row-wrapper" key={rowIndex}>
               {row.map((cell, cellIndex) => (
-                <div key={cellIndex}>{cell}</div>
+                <div key={cellIndex} className={`${selectedPlan === cellIndex - 1 ? 'selected-column' : ''}`}>
+                  {cell}
+                </div>
               ))}
+            </div>
+          ))}
+        </div>
+        <div className="subscription-button">
+          <div></div>
+          {data.map((plan, index) => (
+            <div key={index} className={`${selectedPlan === index ? 'selected-column': ''}`}>
+              {selectedPlan === index && (
+                <button  className="subscribe-button">
+                  Subscribe{/* Subscribe to {plan.planDetails[0].title} */}
+                </button>
+              )}
             </div>
           ))}
         </div>
