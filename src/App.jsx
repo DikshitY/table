@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="app">
-      {windowWidth > 768 ? <PlanComparisonTable data={data} />:
-      <TableMobile data={data} />}
+      {windowWidth <= 768 ? <TableMobile data={data} />:
+      <PlanComparisonTable data={data} />}
     </div>
   );
 }

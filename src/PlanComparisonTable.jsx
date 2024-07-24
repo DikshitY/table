@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const PlanComparisonTable = ({ data }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const tableWrapperRef = useRef(null);
+
+  useEffect(() => {
+    const storedPlan = sessionStorage.getItem('selectedPlan');
+    if (storedPlan !== null) {
+      setSelectedPlan(parseInt(storedPlan, 10));
+    }
+  }, []);
 
   const handleColumnSelect = (index) => {
-    setSelectedPlan(index === selectedPlan ? null : index);
+    const newSelectedPlan = index === selectedPlan ? null : index;
+    setSelectedPlan(newSelectedPlan);
+
+    if (newSelectedPlan === null) {
+      sessionStorage.removeItem('selectedPlan');
+    } else {
+      sessionStorage.setItem('selectedPlan', newSelectedPlan.toString());
+    }
   };
 
   const headers = ['CHOOSE A PLAN'];
@@ -48,41 +63,43 @@ const PlanComparisonTable = ({ data }) => {
     <div className="no-plan">No Plans !</div>
   ) : (
     <div className="wrapper">
-      <div className="table-wrapper">
-        <div className="header-wrapper">
-          {headers.map((header, index) => (
-            <div
-              key={index}
-              onClick={() => index !== 0 && handleColumnSelect(index - 1)}
-              className={`${index !== 0 ? 'cursor-pointer' : ''}`}
-              id={`${selectedPlan === index - 1 ? 'selected-column-header' : ''}`}
-            >
-              {header}
+      <div className="table-wrapper" ref={tableWrapperRef}>
+        <div className="scrollable-content">
+          <div className="header-wrapper">
+            {headers.map((header, index) => (
+              <div
+                key={index}
+                onClick={() => index !== 0 && handleColumnSelect(index - 1)}
+                className={`${index !== 0 ? 'cursor-pointer' : ''}`}
+                id={`${selectedPlan === index - 1 ? 'selected-column-header' : ''}`}
+              >
+                {header}
+              </div>
+            ))}
+          </div>
+          <div className="body-wrapper">
+            {rows.map((row, rowIndex) => (
+              <div className="row-wrapper" key={rowIndex}>
+                {row.map((cell, cellIndex) => (
+                  <div key={cellIndex} className={`${selectedPlan === cellIndex - 1 ? 'selected-column' : ''}`}>
+                    {cell}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          {selectedPlan !== null && (
+            <div className="subscription-button-wrapper">
+              <div className="subscription-button">
+                <div></div>
+                {data.map((plan, index) => (
+                  <div key={index} className={`${selectedPlan === index ? 'selected-column' : ''}`}>
+                    {selectedPlan === index && <button className="subscribe-button">Subscribe</button>}
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-        <div className="body-wrapper">
-          {rows.map((row, rowIndex) => (
-            <div className="row-wrapper" key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <div key={cellIndex} className={`${selectedPlan === cellIndex - 1 ? 'selected-column' : ''}`}>
-                  {cell}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className="subscription-button">
-          <div></div>
-          {data.map((plan, index) => (
-            <div key={index} className={`${selectedPlan === index ? 'selected-column': ''}`}>
-              {selectedPlan === index && (
-                <button  className="subscribe-button">
-                  Subscribe{/* Subscribe to {plan.planDetails[0].title} */}
-                </button>
-              )}
-            </div>
-          ))}
+          )}
         </div>
       </div>
     </div>

@@ -83,20 +83,20 @@
 
 .wrapper {
   width: 1105px;
-  display: flex;
-  flex-direction: column;
   height: 505px;
-  overflow: hidden;
   color: white;
   margin: 20px;
+  overflow: hidden;
 }
 
 .table-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   height: 100%;
   overflow: auto;
+}
+
+.scrollable-content {
+  display: inline-block;
+  min-width: 100%;
 }
 
 .header-wrapper {
@@ -132,11 +132,6 @@
   border-bottom: 2px solid #4f586b;
 }
 
-.header-wrapper div:first-child {
-  font-size: 30px;
-  font-weight: bold;
-}
-
 .row-wrapper div:first-child {
   font-size: 12px;
   font-weight: 600;
@@ -154,7 +149,13 @@
   background-color: #0a1a3e;
   min-width: 350px;
   text-align: left;
-  z-index: 11;
+  z-index: 12;
+}
+
+.header-wrapper div:first-child {
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 0px;
 }
 
 .header-wrapper div:not(first-child),
@@ -166,6 +167,15 @@
   text-align: center;
 }
 
+.subscription-button-wrapper {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0a1a3e;
+  z-index: 12;
+}
+
 .subscription-button {
   display: flex;
   gap: 20px;
@@ -174,7 +184,9 @@
 .subscription-button div:first-child {
   min-width: 350px;
   height: 75px;
-  padding-top: 20px;
+  position: sticky;
+  left: 0;
+  background-color: #0a1a3e;
 }
 
 .subscription-button div:not(first-child) {
@@ -183,8 +195,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding: 10px 0;
 }
 
 .subscribe-button {
@@ -212,9 +223,8 @@
   scroll-behavior: smooth;
 }
 
-
-@media screen and (max-width: 375px){
-  .feature-detail{
+@media screen and (max-width: 375px) {
+  .feature-detail {
     height: 60px;
   }
 }
