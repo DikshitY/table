@@ -83,7 +83,7 @@
 
 .wrapper {
   width: 1105px;
-  height: 505px;
+  height: 515px;
   color: white;
   margin: 20px;
   overflow: hidden;
@@ -183,7 +183,7 @@
 
 .subscription-button div:first-child {
   min-width: 350px;
-  height: 75px;
+  height: 60px;
   position: sticky;
   left: 0;
   background-color: #0a1a3e;
@@ -191,7 +191,7 @@
 
 .subscription-button div:not(first-child) {
   min-width: 250px;
-  height: 75px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
