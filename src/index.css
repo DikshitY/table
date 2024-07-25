@@ -31,11 +31,9 @@
 }
 
 .column-header {
-  height: 70px;
-  line-height: 70px;
-  text-align: left;
+  height: 75px;
   background-color: #3a4765;
-  padding-left: 10px;
+  padding: 10px;
   font-weight: 600;
 }
 
@@ -121,6 +119,7 @@
 
 #selected-column-header {
   background-color: #cf082d;
+  border: 3px solid white;
 }
 
 .header-wrapper div {
@@ -158,13 +157,48 @@
   border-radius: 0px;
 }
 
-.header-wrapper div:not(first-child),
-.row-wrapper div:not(first-child) {
+.header-wrapper div:not(:first-child),
+.row-wrapper div:not(:first-child) {
   display: flex;
   min-width: 250px;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.header-wrapper div:not(:first-child) {
+  padding: 10px;
+}
+
+.bill-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.bill-plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+.bill-plan :nth-child(1){
+  font-weight: 600;
+}
+
+.bill-plan :nth-child(2){
+  font-size: 12px;
+}
+
+.bill-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .subscription-button-wrapper {
@@ -189,7 +223,7 @@
   background-color: #0a1a3e;
 }
 
-.subscription-button div:not(first-child) {
+.subscription-button div:not(:first-child) {
   min-width: 250px;
   height: 60px;
   display: flex;

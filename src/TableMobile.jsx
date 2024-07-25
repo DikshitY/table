@@ -3,7 +3,7 @@ import './index.css';
 
 const TableMobile = ({ data }) => {
   const allFeatures = data.reduce((acc, plan) => {
-    plan.planDetails[0].features.forEach((feature) => {
+    plan.planDetails[0].featureDetails.forEach((feature) => {
       if (!feature.textToDisplay) {
         return;
       }
@@ -18,12 +18,17 @@ const TableMobile = ({ data }) => {
 
   const columns = data.map((plan) => {
     const column = [];
-    column.push(plan.planDetails[0].title);
+    column.push({
+      title: plan.name,
+      description: plan.description,
+      price: plan.planDetails[0].recurringPaymentAmount,
+      duration: plan.renewalCycleType,
+    });
 
     allFeatures.forEach((feature) => {
       let featureValue;
 
-      const hasFeature = plan.planDetails[0].features.some((f) => {
+      const hasFeature = plan.planDetails[0].featureDetails.some((f) => {
         if (f.value === 'N') {
           return false;
         } else if (f.textToDisplay === feature) {
@@ -50,7 +55,19 @@ const TableMobile = ({ data }) => {
     <div className="mobile-table-wrapper">
       {columns.map((column, columnIndex) => (
         <div key={columnIndex} className="column">
-          <div className={`column-header ${columnIndex === 0 ? 'annual' : ''}`}>{column[0]}</div>
+          <div className={`column-header ${columnIndex === 0 ? 'annual' : ''}`}>
+            {
+              <section className="bill-container">
+                <section className="bill-plan">
+                  <span>{column[0].title.split(' ')[0]}</span>
+                  <span>{column[0].description.split(' ')[0]}</span>
+                </section>
+                <section className="bill-price">{`$${column[0].price}/${
+                  (column[0].duration === 'YEAR' && 'yr') || (column[0].duration === 'MONTH' && 'mo')
+                }`}</section>
+              </section>
+            }
+          </div>
           <div className="feature-wrapper">
             {column.slice(1).map((ele, eleIndex) => (
               <div key={eleIndex} className="feature-detail">

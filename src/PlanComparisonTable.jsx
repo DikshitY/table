@@ -25,9 +25,14 @@ const PlanComparisonTable = ({ data }) => {
   const headers = ['CHOOSE A PLAN'];
 
   const allFeatures = data.reduce((acc, plan) => {
-    headers.push(plan.planDetails[0].title);
+    headers.push({
+      title: plan.name,
+      description: plan.description,
+      price: plan.planDetails[0].recurringPaymentAmount,
+      duration: plan.renewalCycleType,
+    });
 
-    plan.planDetails[0].features.forEach((feature) => {
+    plan?.planDetails[0]?.featureDetails.forEach((feature) => {
       if (!feature.textToDisplay) {
         return;
       }
@@ -43,7 +48,7 @@ const PlanComparisonTable = ({ data }) => {
     data.forEach((plan) => {
       let featureValue;
 
-      const hasFeature = plan.planDetails[0].features.some((f) => {
+      const hasFeature = plan.planDetails[0].featureDetails.some((f) => {
         if (f.value === 'N') {
           return false;
         } else if (f.textToDisplay === feature) {
@@ -73,7 +78,17 @@ const PlanComparisonTable = ({ data }) => {
                 className={`${index !== 0 ? 'cursor-pointer' : ''}`}
                 id={`${selectedPlan === index - 1 ? 'selected-column-header' : ''}`}
               >
-                {header}
+                {header.title ? (
+                  <section className="bill-container">
+                    <section className="bill-plan">
+                      <span>{header.title.split(' ')[0]}</span>
+                      <span>{header.description.split(' ')[0]}</span>
+                    </section>
+                    <section className="bill-price">{`$${header.price}/${(header.duration === 'YEAR' && 'yr') || (header.duration === 'MONTH' && 'mo')}`}</section>
+                  </section>
+                ) : (
+                  header
+                )}
               </div>
             ))}
           </div>
